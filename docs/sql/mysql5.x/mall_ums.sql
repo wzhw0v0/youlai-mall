@@ -1,21 +1,10 @@
 /*
- Navicat Premium Data Transfer
-
- Source Server         : root.youlai.tech
- Source Server Type    : MySQL
- Source Server Version : 80028
- Source Host           : www.youlai.tech:3306
- Source Schema         : mall_ums
-
- Target Server Type    : MySQL
- Target Server Version : 80028
- File Encoding         : 65001
-
- Date: 13/02/2022 23:21:52
+* 商城会员表
+* MySQL5.x版本
 */
-use mall_oms;
+use mall_ums;
 
-SET NAMES utf8mb4;
+SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
@@ -23,20 +12,20 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `ums_address`;
 CREATE TABLE `ums_address`  (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `member_id` bigint NULL DEFAULT NULL COMMENT '会员ID',
-  `consignee_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '收货人姓名',
-  `consignee_mobile` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '收货人联系方式',
-  `province` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '省',
-  `city` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '市',
-  `area` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '区',
-  `detail_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '详细地址',
-  `zip_code` char(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '邮编',
-  `defaulted` tinyint NULL DEFAULT NULL COMMENT '是否默认地址',
-  `gmt_create` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `gmt_modified` datetime NULL DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+                                `id` bigint NOT NULL AUTO_INCREMENT,
+                                `member_id` bigint NULL DEFAULT NULL COMMENT '会员ID',
+                                `consignee_name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收货人姓名',
+                                `consignee_mobile` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '收货人联系方式',
+                                `province` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '省',
+                                `city` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '市',
+                                `area` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '区',
+                                `detail_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '详细地址',
+                                `zip_code` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮编',
+                                `defaulted` tinyint NULL DEFAULT NULL COMMENT '是否默认地址',
+                                `gmt_create` datetime NULL DEFAULT NULL COMMENT '创建时间',
+                                `gmt_modified` datetime NULL DEFAULT NULL COMMENT '更新时间',
+                                PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of ums_address
@@ -61,25 +50,25 @@ INSERT INTO `ums_address` VALUES (20, 39, '郝先瑞', '17621590365', '上海', 
 -- ----------------------------
 DROP TABLE IF EXISTS `ums_member`;
 CREATE TABLE `ums_member`  (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `gender` tinyint(1) NULL DEFAULT NULL,
-  `nick_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `mobile` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `birthday` date NULL DEFAULT NULL,
-  `avatar_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `openid` char(28) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `session_key` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `status` tinyint(1) NULL DEFAULT 1,
-  `point` int NULL DEFAULT 0 COMMENT '会员积分',
-  `deleted` tinyint(1) NULL DEFAULT 0,
-  `gmt_create` datetime NULL DEFAULT NULL,
-  `gmt_modified` datetime NULL DEFAULT NULL,
-  `balance` bigint NULL DEFAULT 1000000000,
-  `city` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `country` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `language` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `province` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
+                               `id` bigint NOT NULL AUTO_INCREMENT,
+                               `gender` tinyint(1) NULL DEFAULT NULL,
+                               `nick_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `mobile` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `birthday` date NULL DEFAULT NULL,
+                               `avatar_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `openid` char(28) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `session_key` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `status` tinyint(1) NULL DEFAULT 1,
+                               `point` int NULL DEFAULT 0 COMMENT '会员积分',
+                               `deleted` tinyint(1) NULL DEFAULT 0,
+                               `gmt_create` datetime NULL DEFAULT NULL,
+                               `gmt_modified` datetime NULL DEFAULT NULL,
+                               `balance` bigint NULL DEFAULT 1000000000,
+                               `city` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `country` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `language` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `province` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -113,14 +102,14 @@ INSERT INTO `ums_member` VALUES (40, 1, '秋城', NULL, NULL, 'https://thirdwx.q
 -- ----------------------------
 DROP TABLE IF EXISTS `undo_log`;
 CREATE TABLE `undo_log`  (
-  `branch_id` bigint NOT NULL COMMENT 'branch transaction id',
-  `xid` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'global transaction id',
-  `context` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'undo_log context,such as serialization',
-  `rollback_info` longblob NOT NULL COMMENT 'rollback info',
-  `log_status` int NOT NULL COMMENT '0:normal status,1:defense status',
-  `log_created` datetime(6) NOT NULL COMMENT 'create datetime',
-  `log_modified` datetime(6) NOT NULL COMMENT 'modify datetime',
-  UNIQUE INDEX `ux_undo_log`(`xid`, `branch_id`) USING BTREE
+                             `branch_id` bigint NOT NULL COMMENT 'branch transaction id',
+                             `xid` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'global transaction id',
+                             `context` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'undo_log context,such as serialization',
+                             `rollback_info` longblob NOT NULL COMMENT 'rollback info',
+                             `log_status` int NOT NULL COMMENT '0:normal status,1:defense status',
+                             `log_created` datetime(6) NOT NULL COMMENT 'create datetime',
+                             `log_modified` datetime(6) NOT NULL COMMENT 'modify datetime',
+                             UNIQUE INDEX `ux_undo_log`(`xid`, `branch_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'AT transaction mode undo table' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
